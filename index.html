@@ -93,13 +93,13 @@
     padding:16px 24px;background:var(--green-50);
   }
   .modal-btn{
+    display:block;text-align:center;text-decoration:none;
     width:100%;border:none;cursor:pointer;
     padding:14px;border-radius:12px;
     font-size:1rem;font-weight:700;color:#fff;
     background:var(--green-600);transition:.2s;
   }
-  .modal-btn:enabled:hover{background:var(--green-700)}
-  .modal-btn:disabled{background:#b9c9c0;cursor:not-allowed}
+  .modal-btn:hover{background:var(--green-700);text-decoration:none}
   body.modal-open{overflow:hidden}
 
   /* ============ ヘッダー / ヒーロー ============ */
@@ -195,6 +195,8 @@
   .btn:hover{background:var(--green-100);text-decoration:none}
   .btn.solid{background:var(--green-600);color:#fff;border-color:var(--green-600)}
   .btn.solid:hover{background:var(--green-700)}
+  .btn.blue{background:#2563eb;color:#fff;border-color:#2563eb}
+  .btn.blue:hover{background:#1d4ed8;text-decoration:none}
 
   /* ============ 書類タブ ============ */
   .tabs{
@@ -251,6 +253,40 @@
   .subnote.warn{background:var(--warn-bg);border-left-color:var(--warn-bd);color:var(--warn-tx)}
   .conveni{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 
+  /* コンビニスキャン案内ボックス（グレー・元サイト準拠） */
+  .conveni-box{
+    background:#f5f7f6;border:1px solid #e3e8e5;
+    border-radius:12px;padding:16px 18px;margin-top:14px;
+  }
+  .conveni-box h5{margin:0 0 8px}
+  .conveni-box p{font-size:.85rem;margin:0}
+  .conveni-box .subhint{color:var(--muted);font-size:.8rem}
+  .conveni-box .conveni{margin-top:12px}
+
+  /* 色付きカラーボックス（元サイト準拠） */
+  .callout{border-radius:12px;padding:15px 17px;margin-top:14px;border-left:5px solid}
+  .callout h5{margin:0 0 8px;font-size:.95rem}
+  .callout p{margin:0;font-size:.9rem}
+  .callout ul{margin:6px 0 0 20px;font-size:.9rem}
+  .callout li{margin-bottom:4px}
+  .callout .btn-row{margin-top:12px}
+  .callout-red{background:#fdecec;border-left-color:#e04b3a}
+  .callout-red h5{color:#b5372a}
+  .callout-yellow{background:var(--warn-bg);border-left-color:#f0c164}
+  .callout-yellow h5{color:var(--warn-tx)}
+  .callout-green{background:var(--green-50);border-left-color:var(--green-500)}
+  .callout-green h5{color:var(--green-800)}
+
+  /* マイナンバーカードあり/なし 2ボックス（グレー） */
+  .mynum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .mynum-box{
+    border:1px solid #e3e8e5;border-radius:12px;
+    padding:14px;background:#f5f7f6;
+  }
+  .mynum-box .mynum-t{display:block;font-weight:700;color:var(--ink);margin-bottom:4px;font-size:.92rem}
+  .mynum-box p{font-size:.82rem;margin:0;color:var(--body)}
+  @media(max-width:640px){.mynum{grid-template-columns:1fr}}
+
   /* ============ フッター ============ */
   footer{
     background:var(--green-900);color:#cfe6da;
@@ -286,82 +322,13 @@
       <h2 id="modal-title">⚠️ 不正に関する重要な注意喚起</h2>
     </div>
     <div class="modal-body" id="modal-scroll">
-      <p>本補助金の申請にあたっては、適正な申請および事業実施が求められます。不正または不適切と判断された場合、交付決定後であっても補助金の返還等の措置が取られる可能性があります。以下の内容をご確認のうえ、適正な申請をお願いいたします。</p>
-
-      <h3>① 申請は必ず申請者自身が実施してください</h3>
-      <p>本補助金は、申請者ご自身が申請内容およびシステム情報を十分に理解・確認したうえで申請を行う必要があります。申請の代行は認められておりませんので、ご注意ください。また、決算情報・従業員数・社内体制等について、事実と異なる内容での申請はできません。</p>
-
-      <h3>② 補助金受給のみを目的とした申請は禁止されています</h3>
-      <ul>
-        <li>実態のないツール導入</li>
-        <li>導入後の活用計画がない申請</li>
-        <li>業務改善に資さない導入内容</li>
-      </ul>
-
-      <h3>③ 実態のあるシステム導入が必要です</h3>
-      <p>交付決定後であっても、事務局による実地調査や証憑確認が行われる場合があります。導入の目的・活用方法・業務改善効果・導入後の運用体制について説明可能な内容となっている必要があります。</p>
-
-      <h3>④ 補助対象経費の払い戻し（キックバック）は禁止されています</h3>
-      <ul>
-        <li>口座振込による払い戻し</li>
-        <li>現金による返金</li>
-        <li>値引き後に別途返金する行為</li>
-      </ul>
-
-      <h3>⑤ 第三者を介した資金還流は禁止されています</h3>
-      <ul>
-        <li>発注先と関係のない第三者からの資金提供</li>
-        <li>資金の還流を伴う商取引</li>
-        <li>実態のない金融取引</li>
-      </ul>
-
-      <h3>⑥ 補助金等適正化法に違反する行為は禁止されています</h3>
-      <ul>
-        <li>補助金の他用途への流用</li>
-        <li>虚偽報告</li>
-        <li>実態のない事業実施</li>
-      </ul>
-
-      <h3>⑦ 不正が確認された場合の対応について</h3>
-      <ul>
-        <li>補助金の返還</li>
-        <li>加算金の請求</li>
-        <li>申請の取り消し</li>
-        <li>今後の補助金申請の制限</li>
-      </ul>
-
-      <h3>⑧ 購入設備の第三者貸与について</h3>
-      <p>補助対象として購入した設備は、申請者自身が占有し、事業の用に供することが前提です。特定の第三者への長期間貸与や、申請者が使用しない設備導入は認められていません。</p>
-
-      <h3>⑨ 公序良俗・法令遵守について</h3>
-      <ul>
-        <li>公序良俗に反する事業</li>
-        <li>社会通念上不適切と認められる事業</li>
-        <li>法令違反または違反のおそれがある事業</li>
-        <li>消費者保護の観点から不適切な事業</li>
-      </ul>
-
-      <h3>⑩ 風俗営業等に該当する事業について</h3>
-      <p>風俗営業等の規制及び業務の適正化等に関する法律第2条に該当する営業、店舗型性風俗特殊営業は対象外です。ただし、旅館業法に基づき許可を受けた旅館業（店舗型性風俗特殊営業を除く）は対象となる場合があります。</p>
-
-      <div class="modal-final">
-        <strong>📋 最終確認のお願い</strong><br>
-        本補助金は、適正な事業実施を前提とした制度です。申請前に上記内容をご確認いただき、適正な申請をお願いいたします。不明点がある場合は、必ず事前にご相談ください。
-      </div>
-      <p class="scroll-hint">↑ スクロールしてすべての内容をご確認ください</p>
+      <p>本補助金の申請にあたっては、適正な申請および事業実施が求められます。不正または不適切と判断された場合、交付決定後であっても補助金の返還等の措置が取られる可能性があります。以下のフォーム内容をご確認のうえ、必ずご回答いただき、適正な申請をお願いいたします。</p>
     </div>
     <div class="modal-foot">
-      <button class="modal-btn" id="agree-btn" disabled>内容を確認しました</button>
+      <a class="modal-btn" id="agree-btn" href="https://forms.gle/cgq9y3q7BYM1z3Sp7" target="_blank" rel="noopener">フォームに回答する</a>
     </div>
   </div>
 </div>
-
-<!-- ============ ヘッダー ============ -->
-<header class="site-header">
-  <div class="wrap">
-    <div class="brand">株式会社SOHO<small>デジタル化・AI導入補助金 申請サポート</small></div>
-  </div>
-</header>
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero">
@@ -424,7 +391,7 @@
 <!-- ============ 必要書類一覧 ============ -->
 <section class="block">
   <div class="wrap">
-    <h2 class="section-title">必要<span class="accent">書類一覧</span></h2>
+    <h2 class="section-title">必要書類一覧</h2>
     <p class="section-lead">申請区分のタブを切り替えてご確認ください</p>
 
     <div class="tabs">
@@ -448,11 +415,25 @@
             <a class="btn solid" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">🌐 登録サイトへ</a>
             <a class="btn" href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_sole-proprietor.pdf" target="_blank" rel="noopener">📖 マニュアル</a>
           </div>
-          <div class="subnote warn">🚩 <strong>お早めに！</strong> 郵送手続きの場合、アカウント発行までに<strong>1〜2週間</strong>かかります。オンライン手続きなら<strong>即日発行</strong>可能です。</div>
-          <h5>⚠️ 認証設定が必要です</h5>
-          <p>アプリ認証またはメールワンタイムパスワード認証の設定が必要です。</p>
-          <h5>📸 取得後にキャプチャをご共有ください</h5>
-          <p>マイページのTOP画面をキャプチャし、フォームに添付するか担当者宛にメール／LINEでお送りください。</p>
+          <div class="callout callout-red">
+            <h5>🚩 お早めに！時間がかかる場合があります</h5>
+            <ul><li>郵送手続きをされる場合はアカウント発行までに<strong>1〜2週間</strong>かかるため、お早めのご対応をお願いいたします。</li>
+            <li>オンライン手続きをされる場合は<strong>即日でアカウント発行</strong>可能です。</li></ul>
+          </div>
+          <div class="callout callout-yellow">
+            <h5>⚠️ 認証設定が必要です</h5>
+            <p>アプリ認証またはメールワンタイムパスワード認証の設定が必要です。</p>
+            <div class="btn-row"><a class="btn" href="https://drive.google.com/file/d/1mTpDkdmMH9XXdbIOxFky3r1YNk27ufjD/view?usp=sharing" target="_blank" rel="noopener">📖 マニュアル</a></div>
+          </div>
+          <div class="callout callout-green">
+            <h5>📸 取得後にキャプチャをご共有ください</h5>
+            <p>GビズIDプライムを取得したら、<strong>マイページのTOP画面をキャプチャ</strong>してください。取得したキャプチャは、<strong>フォームに添付</strong>するか弊社担当者宛に<strong>メール／LINE</strong>でお送りください。スムーズな手続きのため、ご協力をお願いいたします。</p>
+            <div class="btn-row"><a class="btn" href="https://drive.google.com/file/d/1nLQWr2URUfnJPpQ0WhJB0AzVtI7AAHkR/view?usp=sharing" target="_blank" rel="noopener">📖 キャプチャ取得マニュアル</a></div>
+          </div>
+          <div class="mynum">
+            <div class="mynum-box"><span class="mynum-t">🪪 マイナンバーカードあり</span><p>オンラインで即日取得可能。スマートフォンアプリの登録が必須です。</p></div>
+            <div class="mynum-box"><span class="mynum-t">📮 マイナンバーカードなし</span><p>郵送手続きにて取得可能。スマートフォンアプリの登録が必須です。</p></div>
+          </div>
         </div>
       </div>
 
@@ -469,11 +450,21 @@
             <a class="btn solid" href="https://sme-security.ipa.go.jp/login" target="_blank" rel="noopener">🌐 登録サイトへ</a>
             <a class="btn" href="https://drive.google.com/file/d/1iaEiz88ezqTJoxJlPE7msN3eN7Qu9jqg/view?usp=sharing" target="_blank" rel="noopener">📖 マニュアル</a>
           </div>
-          <div class="subnote warn">🚨 <strong>2026年4月1日（予定）から申込方法が変わりました。</strong> ご利用にはGビズIDプライムまたはメンバーのアカウントが必須です。第2次公募（2026年5月頃〜）以降は現在の自己宣言IDでは申請できなくなります。</div>
-          <h5>✅ 申込直後に自己宣言IDを発行</h5>
-          <p>「<strong>5</strong>」から始まる<strong>11桁の数字</strong>をフォームに入力、または直接ご教示ください。</p>
-          <h5>⭐ 星の選択について</h5>
-          <p>「<strong>★一つ星</strong>」または「★★二つ星」をお選びください。<strong>「★一つ星」を推奨</strong>しております。</p>
+          <div class="callout callout-red">
+            <h5>🚨 2026年4月1日（予定）から申込方法が変わりました！</h5>
+            <ul>
+              <li>SECURITY ACTION管理システムにGビズIDでログインし手続きを行ってください</li>
+              <li>第2次公募（2026年5月頃〜）以降は、<strong>現在の自己宣言IDでは申請できなくなります。</strong></li>
+            </ul>
+          </div>
+          <div class="callout callout-yellow">
+            <h5>✅ 申込直後に自己宣言IDを発行</h5>
+            <p>登録完了後、申込直後に自己宣言IDが発行されます。<br>「<strong>5</strong>」から始まる<strong>11桁の数字</strong>をフォームに入力または直接ご教示ください。</p>
+          </div>
+          <div class="callout callout-green">
+            <h5>⭐ 星の選択について</h5>
+            <p><strong>「★一つ星」を推奨</strong>しております。</p>
+          </div>
         </div>
       </div>
 
@@ -559,13 +550,16 @@
             <li>発行日が申請日より<strong>3ヶ月以内</strong>のもの</li>
             <li><strong>全ページ</strong>揃っていること</li>
           </ul>
-          <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
-          <p>必要なもの：30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ</p>
-          <div class="conveni">
-            <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
-            <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
-            <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
           </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
@@ -589,6 +583,16 @@
             <li><strong>直近分</strong>であること</li>
             <li>発行元が「<strong>税務署</strong>」であること</li>
           </ul>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
+          </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
@@ -604,29 +608,33 @@
           <p><strong>貸借対照表</strong>および<strong>損益計算書</strong>が必要です。</p>
           <ul><li>直近分の<strong>前期決算書</strong>であること</li></ul>
           <div class="btn-row"><a class="btn" href="https://drive.google.com/drive/u/0/folders/1vqwhc21_quSx7e9rKAEbVX5eMfE2PrCV" target="_blank" rel="noopener">📖 見本</a></div>
-          <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
-          <div class="conveni">
-            <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
-            <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
-            <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
           </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-head">
           <div class="card-ico">✏️</div>
-          <div class="card-title"><span class="card-no">DOC 09</span><h4>フォーム入力</h4>
+          <div class="card-title"><span class="card-no">DOC 09</span><h4>会社情報入力</h4>
             <div class="badges"><span class="badge warn">入力必須</span></div>
           </div>
           <span class="chev">⌄</span>
         </div>
         <div class="card-body">
           <h5>📄 通常枠・W申請の方</h5>
-          <div class="btn-row"><a class="btn solid" href="#" target="_blank" rel="noopener">▶ 【通常枠／法人】フォームはこちら</a></div>
+          <div class="btn-row"><a class="btn blue" href="通常枠_法人_入力マスター.xlsx" download>▶ 【通常枠／法人】ファイル・ダウンロード</a></div>
           <p style="font-size:.82rem;color:var(--muted)">※W申請：通常枠とインボイス枠の両方を申請する方</p>
           <h5>📑 インボイス枠申請の方</h5>
-          <div class="btn-row"><a class="btn solid" href="#" target="_blank" rel="noopener">▶ 【インボイス枠／法人】フォームはこちら</a></div>
+          <div class="btn-row"><a class="btn solid" href="インボイス枠_法人_入力マスター.xlsx" download>▶ 【インボイス枠／法人】ファイル・ダウンロード</a></div>
           <div class="subnote warn">🚩 申請枠によってご入力いただくフォームが<strong>異なります</strong>。申請枠が分からない場合は必ず弊社担当へご確認ください。</div>
           <h5>✅ 決算内容の入力について</h5>
           <p>フォームに入力いただく各項目は、決算書の「<strong>損益計算書</strong>」からご確認ください。「給与支給総額」の実績数値は<strong>勘定科目内訳明細書（⑭役員報酬手当等及び人件費の内訳）</strong>に基づいて入力してください。</p>
@@ -651,9 +659,25 @@
             <a class="btn solid" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">🌐 登録サイトへ</a>
             <a class="btn" href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_sole-proprietor.pdf" target="_blank" rel="noopener">📖 マニュアル</a>
           </div>
-          <div class="subnote warn">🚩 <strong>お早めに！</strong> 郵送手続きの場合、アカウント発行までに<strong>1〜2週間</strong>かかります。オンライン手続きなら<strong>即日発行</strong>可能です。</div>
-          <h5>📸 取得後にキャプチャをご共有ください</h5>
-          <p>マイページのTOP画面をキャプチャし、フォームに添付するか担当者宛にメール／LINEでお送りください。</p>
+          <div class="callout callout-red">
+            <h5>🚩 お早めに！時間がかかる場合があります</h5>
+            <ul><li>郵送手続きをされる場合はアカウント発行までに<strong>1〜2週間</strong>かかるため、お早めのご対応をお願いいたします。</li>
+            <li>オンライン手続きをされる場合は<strong>即日でアカウント発行</strong>可能です。</li></ul>
+          </div>
+          <div class="callout callout-yellow">
+            <h5>⚠️ 認証設定が必要です</h5>
+            <p>アプリ認証またはメールワンタイムパスワード認証の設定が必要です。</p>
+            <div class="btn-row"><a class="btn" href="https://drive.google.com/file/d/1mTpDkdmMH9XXdbIOxFky3r1YNk27ufjD/view?usp=sharing" target="_blank" rel="noopener">📖 マニュアル</a></div>
+          </div>
+          <div class="callout callout-green">
+            <h5>📸 取得後にキャプチャをご共有ください</h5>
+            <p>GビズIDプライムを取得したら、<strong>マイページのTOP画面をキャプチャ</strong>してください。取得したキャプチャは、<strong>フォームに添付</strong>するか弊社担当者宛に<strong>メール／LINE</strong>でお送りください。</p>
+            <div class="btn-row"><a class="btn" href="https://drive.google.com/file/d/1nLQWr2URUfnJPpQ0WhJB0AzVtI7AAHkR/view?usp=sharing" target="_blank" rel="noopener">📖 キャプチャ取得マニュアル</a></div>
+          </div>
+          <div class="mynum">
+            <div class="mynum-box"><span class="mynum-t">🪪 マイナンバーカードあり</span><p>オンラインで即日取得可能。スマートフォンアプリの登録が必須です。</p></div>
+            <div class="mynum-box"><span class="mynum-t">📮 マイナンバーカードなし</span><p>郵送手続きにて取得可能。スマートフォンアプリの登録が必須です。</p></div>
+          </div>
         </div>
       </div>
 
@@ -670,11 +694,21 @@
             <a class="btn solid" href="https://sme-security.ipa.go.jp/login" target="_blank" rel="noopener">🌐 登録サイトへ</a>
             <a class="btn" href="https://drive.google.com/file/d/1iaEiz88ezqTJoxJlPE7msN3eN7Qu9jqg/view?usp=sharing" target="_blank" rel="noopener">📖 マニュアル</a>
           </div>
-          <div class="subnote warn">🚨 <strong>2026年4月1日（予定）から申込方法が変わりました。</strong> 第2次公募（2026年5月頃〜）以降は現在の自己宣言IDでは申請できなくなります。</div>
-          <h5>✅ 申込直後に自己宣言IDを発行</h5>
-          <p>「<strong>5</strong>」から始まる<strong>11桁の数字</strong>をフォームに入力、または直接ご教示ください。</p>
-          <h5>⭐ 星の選択について</h5>
-          <p>「<strong>★一つ星</strong>」を推奨しております。</p>
+          <div class="callout callout-red">
+            <h5>🚨 2026年4月1日（予定）から申込方法が変わりました！</h5>
+            <ul>
+              <li>SECURITY ACTION管理システムにGビズIDでログインし手続きを行ってください</li>
+              <li>第2次公募（2026年5月頃〜）以降は、<strong>現在の自己宣言IDでは申請できなくなります。</strong></li>
+            </ul>
+          </div>
+          <div class="callout callout-yellow">
+            <h5>✅ 申込直後に自己宣言IDを発行</h5>
+            <p>登録完了後、申込直後に自己宣言IDが発行されます。<br>「<strong>5</strong>」から始まる<strong>11桁の数字</strong>をフォームに入力または直接ご教示ください。</p>
+          </div>
+          <div class="callout callout-green">
+            <h5>⭐ 星の選択について</h5>
+            <p><strong>「★一つ星」を推奨</strong>しております。</p>
+          </div>
         </div>
       </div>
 
@@ -758,11 +792,14 @@
             <li>取得から<strong>3ヶ月以内</strong>のものをご準備ください</li>
             <li>QRコードを含む<strong>マイナンバーや保険者番号・本籍の記載がない</strong>こと</li>
           </ul>
-          <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
-          <div class="conveni">
-            <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
-            <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
-            <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
           </div>
         </div>
       </div>
@@ -787,6 +824,16 @@
             <li><strong>直近分</strong>であること</li>
             <li>発行元が「<strong>税務署</strong>」であること</li>
           </ul>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
+          </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
@@ -810,6 +857,16 @@
             <li><strong>❷</strong>「受付日時」「受付番号」「電子申告済み」の文言が記載されているか</li>
           </ul>
           <div class="subnote">※書類のタイトルが「確定申告書」と異なる場合は、正しい書類か確認いたしますのでご連絡ください。</div>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
+          </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
@@ -829,29 +886,33 @@
             <li>① <strong>青色申告決算書</strong></li>
             <li>② <strong>白色申告 収支内訳書</strong></li>
           </ul>
-          <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
-          <div class="conveni">
-            <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
-            <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
-            <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+          <div class="conveni-box">
+            <h5>🏪 コンビニで書類をPDFにスキャンする方法</h5>
+            <p><strong>必要なもの：</strong>30円（1枚あたり）／ USBメモリーまたはスマートフォンアプリ<br><span class="subhint">※セブンイレブンスキャン用アプリが必要です（iOS / Android）</span></p>
+            <div class="conveni">
+              <a class="btn" href="https://www.sej.co.jp/services/scan.html" target="_blank" rel="noopener">🏪 セブンイレブン</a>
+              <a class="btn" href="https://www.family.co.jp/services/print/scan.html" target="_blank" rel="noopener">🏪 ファミリーマート</a>
+              <a class="btn" href="https://www.lawson.co.jp/service/others/multicopy/" target="_blank" rel="noopener">🏪 ローソン</a>
+            </div>
           </div>
+          <div class="subnote">・PDFでのご提出をお願いいたします。<br>※書類の提出はスキャンしたものが望ましいです。<br>（撮影の場合は正面・全体が写るようご注意ください）</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-head">
           <div class="card-ico">✏️</div>
-          <div class="card-title"><span class="card-no">DOC 10</span><h4>フォーム入力</h4>
+          <div class="card-title"><span class="card-no">DOC 10</span><h4>会社情報入力</h4>
             <div class="badges"><span class="badge warn">入力必須</span></div>
           </div>
           <span class="chev">⌄</span>
         </div>
         <div class="card-body">
           <h5>📄 通常枠・W申請の方</h5>
-          <div class="btn-row"><a class="btn solid" href="#" target="_blank" rel="noopener">▶ 【通常枠／個人】フォームはこちら</a></div>
+          <div class="btn-row"><a class="btn blue" href="通常枠_個人_入力マスター.xlsx" download>▶ 【通常枠／個人】ファイル・ダウンロード</a></div>
           <p style="font-size:.82rem;color:var(--muted)">※W申請：通常枠とインボイス枠の両方を申請する方</p>
           <h5>📑 インボイス枠申請の方</h5>
-          <div class="btn-row"><a class="btn solid" href="#" target="_blank" rel="noopener">▶ 【インボイス枠／個人】フォームはこちら</a></div>
+          <div class="btn-row"><a class="btn solid" href="インボイス枠_個人_入力マスター.xlsx" download>▶ 【インボイス枠／個人】ファイル・ダウンロード</a></div>
           <div class="subnote warn">🚩 申請枠によってご入力いただくフォームが<strong>異なります</strong>。申請枠が分からない場合は必ず弊社担当へご確認ください。</div>
         </div>
       </div>
@@ -874,20 +935,11 @@
 </footer>
 
 <script>
-  /* ===== モーダル制御（スクロール完了で同意ボタン有効化） ===== */
-  const modal   = document.getElementById('modal');
-  const scroll  = document.getElementById('modal-scroll');
-  const agree   = document.getElementById('agree-btn');
+  /* ===== モーダル制御 ===== */
+  const modal = document.getElementById('modal');
+  const agree = document.getElementById('agree-btn');
 
-  function checkScroll(){
-    if(scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 12){
-      agree.disabled = false;
-    }
-  }
-  scroll.addEventListener('scroll', checkScroll);
-  // 内容が短くスクロール不要な場合も有効化
-  window.addEventListener('load', ()=>{ if(scroll.scrollHeight <= scroll.clientHeight + 12) agree.disabled = false; });
-
+  // フォームボタンを押したらモーダルを閉じる（フォームは別タブで開く）
   agree.addEventListener('click', ()=>{
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
@@ -896,8 +948,6 @@
   function openModal(){
     modal.style.display = 'flex';
     document.body.classList.add('modal-open');
-    scroll.scrollTop = 0;
-    checkScroll();
   }
 
   /* ===== タブ切り替え ===== */
