@@ -276,6 +276,7 @@
   .callout .btn-row{margin-top:12px}
   .callout-red{background:#fdecec;border-left-color:#e04b3a}
   .callout-red h5{color:#b5372a}
+  .callout-red p,.callout-red li{color:#a5382b}
   .callout-yellow{background:var(--warn-bg);border-left-color:#f0c164}
   .callout-yellow h5{color:var(--warn-tx)}
   .callout-green{background:var(--green-50);border-left-color:var(--green-500)}
@@ -647,14 +648,28 @@
           <span class="chev">⌄</span>
         </div>
         <div class="card-body">
-          <h5>📄 通常枠・W申請の方</h5>
-          <div class="btn-row"><a class="btn blue" href="form_normal_corp.xlsx" download="通常枠_法人_入力マスター.xlsx">▶ 【通常枠／法人】ファイル・ダウンロード</a></div>
-          <p style="font-size:.82rem;color:var(--muted)">※W申請：通常枠とインボイス枠の両方を申請する方</p>
-          <h5>📑 インボイス枠申請の方</h5>
-          <div class="btn-row"><a class="btn orange" href="form_invoice_corp.xlsx" download="インボイス枠_法人_入力マスター.xlsx">▶ 【インボイス枠／法人】ファイル・ダウンロード</a></div>
-          <div class="subnote warn">🚩 申請枠によってご入力いただくフォームが<strong>異なります</strong>。申請枠が分からない場合は必ず弊社担当へご確認ください。</div>
-          <h5>✅ 決算内容の入力について</h5>
-          <p>フォームに入力いただく各項目は、決算書の「<strong>損益計算書</strong>」からご確認ください。「給与支給総額」の実績数値は<strong>勘定科目内訳明細書（⑭役員報酬手当等及び人件費の内訳）</strong>に基づいて入力してください。</p>
+          <div class="conveni-box">
+            <h5>📄 通常枠・W申請の方</h5>
+            <div class="btn-row"><a class="btn blue" href="form_normal_corp.xlsx" download="通常枠_法人_ご入力マスター.xlsx">▶ 【通常枠／法人】ファイル・ダウンロード</a></div>
+            <p style="font-size:.82rem;color:var(--muted);margin-top:10px">※W申請：通常枠とインボイス枠の両方を申請する方</p>
+          </div>
+          <div class="conveni-box">
+            <h5>📑 インボイス枠申請の方</h5>
+            <div class="btn-row"><a class="btn orange" href="form_invoice_corp.xlsx" download="インボイス枠_法人_ご入力マスター.xlsx">▶ 【インボイス枠／法人】ファイル・ダウンロード</a></div>
+          </div>
+          <div class="callout callout-red">
+            <h5>🚩 ご注意ください</h5>
+            <ul>
+              <li>申請枠によってご入力いただく<strong>ファイル</strong>が異なります</li>
+              <li>申請枠が分からない場合は、<strong>必ず弊社担当へご確認ください</strong></li>
+              <li>記入後のファイルと必要書類はメール・LINEにてご送付ください</li>
+            </ul>
+          </div>
+          <div class="callout callout-green">
+            <h5>✅ 決算内容の入力について</h5>
+            <p>フォームに入力いただく各項目は、決算書の「<strong>損益計算書</strong>」からご確認ください。</p>
+            <p>「給与支給総額」の実績数値は以下資料に基づいて入力してください：<br>📋 <strong>勘定科目内訳明細書（⑭役員報酬手当等及び人件費の内訳）</strong></p>
+          </div>
         </div>
       </div>
 
@@ -938,12 +953,23 @@
           <span class="chev">⌄</span>
         </div>
         <div class="card-body">
-          <h5>📄 通常枠・W申請の方</h5>
-          <div class="btn-row"><a class="btn blue" href="form_normal_sole.xlsx" download="通常枠_個人_入力マスター.xlsx">▶ 【通常枠／個人】ファイル・ダウンロード</a></div>
-          <p style="font-size:.82rem;color:var(--muted)">※W申請：通常枠とインボイス枠の両方を申請する方</p>
-          <h5>📑 インボイス枠申請の方</h5>
-          <div class="btn-row"><a class="btn orange" href="form_invoice_sole.xlsx" download="インボイス枠_個人_入力マスター.xlsx">▶ 【インボイス枠／個人】ファイル・ダウンロード</a></div>
-          <div class="subnote warn">🚩 申請枠によってご入力いただくフォームが<strong>異なります</strong>。申請枠が分からない場合は必ず弊社担当へご確認ください。</div>
+          <div class="conveni-box">
+            <h5>📄 通常枠・W申請の方</h5>
+            <div class="btn-row"><a class="btn blue" href="form_normal_sole.xlsx" download="通常枠_個人_ご入力マスター.xlsx">▶ 【通常枠／個人】ファイル・ダウンロード</a></div>
+            <p style="font-size:.82rem;color:var(--muted);margin-top:10px">※W申請：通常枠とインボイス枠の両方を申請する方</p>
+          </div>
+          <div class="conveni-box">
+            <h5>📑 インボイス枠申請の方</h5>
+            <div class="btn-row"><a class="btn orange" href="form_invoice_sole.xlsx" download="インボイス枠_個人_ご入力マスター.xlsx">▶ 【インボイス枠／個人】ファイル・ダウンロード</a></div>
+          </div>
+          <div class="callout callout-red">
+            <h5>🚩 ご注意ください</h5>
+            <ul>
+              <li>申請枠によってご入力いただく<strong>ファイル</strong>が異なります</li>
+              <li>申請枠が分からない場合は、<strong>必ず弊社担当へご確認ください</strong></li>
+              <li>記入後のファイルと必要書類はメール・LINEにてご送付ください</li>
+            </ul>
+          </div>
         </div>
       </div>
 
