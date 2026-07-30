@@ -99,9 +99,9 @@
     width:100%;border:none;cursor:pointer;
     padding:14px;border-radius:12px;
     font-size:1rem;font-weight:700;color:#fff;
-    background:var(--green-600);transition:.2s;
+    background:#d32f2f;transition:.2s;
   }
-  .modal-btn:hover{background:var(--green-700);text-decoration:none}
+  .modal-btn:hover{background:#b71c1c;text-decoration:none}
   body.modal-open{overflow:hidden}
 
   /* ============ ヘッダー / ヒーロー ============ */
@@ -157,15 +157,34 @@
   .purpose .ico{font-size:2rem;line-height:1}
   .purpose h3{color:var(--green-800);font-size:1.1rem;margin-bottom:6px}
 
+  .warn-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px}
   .warn-link{
-    display:inline-flex;align-items:center;gap:8px;
-    margin:24px auto 0;
-    color:var(--danger);border:1px solid var(--warn-bd);
-    background:var(--warn-bg);
-    padding:12px 22px;border-radius:999px;font-weight:700;font-size:.92rem;
-    cursor:pointer;transition:.2s;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    color:#fff;border:2px solid #b71c1c;
+    background:linear-gradient(135deg,#e53935,#c62828);
+    padding:17px 32px;border-radius:999px;font-weight:800;font-size:1.08rem;
+    cursor:pointer;transition:.2s;text-align:center;
+    box-shadow:0 6px 18px rgba(198,40,40,.35);
+    animation:warnPulse 2s ease-in-out infinite;
   }
-  .warn-link:hover{background:#fff2dc;text-decoration:none}
+  .warn-link:hover{background:linear-gradient(135deg,#c62828,#b71c1c);text-decoration:none;transform:translateY(-1px)}
+  @keyframes warnPulse{
+    0%,100%{box-shadow:0 6px 18px rgba(198,40,40,.35),0 0 0 0 rgba(211,47,47,.5)}
+    50%{box-shadow:0 6px 18px rgba(198,40,40,.35),0 0 0 12px rgba(211,47,47,0)}
+  }
+  .warn-note{
+    color:#d32f2f;font-weight:700;font-size:.96rem;text-align:center;line-height:1.6;
+    background:var(--warn-bg);border:2px dashed #e0a94b;border-radius:12px;
+    padding:10px 16px;max-width:560px;
+  }
+  .emph-underline{
+    color:#d32f2f;font-weight:800;font-size:1.24em;
+    background-image:linear-gradient(transparent 38%, #ffe600 38%, #ffe600 96%, transparent 96%);
+    background-repeat:no-repeat;background-position:0 0;background-size:0% 100%;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone;
+    animation:emphDraw 3.3s ease-out .35s forwards;
+  }
+  @keyframes emphDraw{to{background-size:100% 100%}}
   .center{display:flex;justify-content:center}
 
   /* ============ ステップ ============ */
@@ -313,7 +332,7 @@
     .card-head{padding:16px}
   }
   @media(prefers-reduced-motion:reduce){
-    *{scroll-behavior:auto!important;transition:none!important}
+    *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
   }
   :focus-visible{outline:3px solid var(--green-500);outline-offset:2px;border-radius:4px}
 </style>
@@ -327,10 +346,11 @@
       <h2 id="modal-title">⚠️ 不正に関する重要な注意喚起</h2>
     </div>
     <div class="modal-body" id="modal-scroll">
-      <p>本補助金の申請にあたっては、適正な申請および事業実施が求められます。不正または不適切と判断された場合、交付決定後であっても補助金の返還等の措置が取られる可能性があります。以下のフォーム内容をご確認のうえ、必ずご回答いただき、適正な申請をお願いいたします。</p>
+      <p>本補助金の申請にあたっては、適正な申請および事業実施が求められます。不正または不適切と判断された場合、交付決定後であっても補助金の返還等の措置が取られる可能性があります。</p>
+      <p style="margin-top:14px">適正な申請のため、<strong class="emph-underline">以下のフォーム内容をご確認のうえ、必ずご回答ください。</strong></p>
     </div>
     <div class="modal-foot">
-      <a class="modal-btn" id="agree-btn" href="https://forms.gle/cgq9y3q7BYM1z3Sp7" target="_blank" rel="noopener">フォームに回答する</a>
+      <a class="modal-btn" id="agree-btn" href="https://forms.gle/cgq9y3q7BYM1z3Sp7" target="_blank" rel="noopener">フォームに回答する※必須※</a>
     </div>
   </div>
 </div>
@@ -354,8 +374,9 @@
         <p>業務効率化やDX推進に向けた<strong>ソフトウェア・クラウドサービス等のITツール導入費用</strong>を国が一部補助する制度です。下記の書類準備と、オンラインでの交付申請手続きが必要となります。</p>
       </div>
     </div>
-    <div class="center">
+    <div class="warn-cta">
       <button class="warn-link" onclick="openModal()">⚠️ 不正に関する重要な注意喚起を確認する</button>
+      <p class="warn-note">※申請前に注意喚起の内容をご確認のうえ、上記フォームに必ずご回答ください。</p>
     </div>
   </div>
 </section>
@@ -1003,6 +1024,8 @@
   function openModal(){
     modal.style.display = 'flex';
     document.body.classList.add('modal-open');
+    const em = modal.querySelector('.emph-underline');
+    if(em){ em.style.animation = 'none'; void em.offsetWidth; em.style.animation = ''; }
   }
 
   /* ===== タブ切り替え ===== */
