@@ -77,10 +77,8 @@
     background:rgba(255,255,255,.16);color:#fff;
     font-size:1.25rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
-    opacity:0;pointer-events:none;transform:scale(.8);
-    transition:opacity .45s ease, transform .45s ease, background .2s ease;
+    transition:background .2s ease;
   }
-  .modal-close.show{opacity:1;pointer-events:auto;transform:scale(1)}
   .modal-close:hover{background:rgba(255,255,255,.32)}
   .modal-body{padding:22px 24px;overflow-y:auto}
   .modal-body h3{
@@ -1042,22 +1040,11 @@
     document.body.classList.remove('modal-open');
   });
 
-  // 開いて約2.5秒後に×ボタンをフェード表示（開き直すたびにリセット）
-  let closeTimer;
-  function scheduleCloseButton(){
-    closeBtn.classList.remove('show');
-    clearTimeout(closeTimer);
-    closeTimer = setTimeout(()=> closeBtn.classList.add('show'), 2500);
-  }
-  // 初回表示時（ページ読み込み時にモーダルが開いている）
-  scheduleCloseButton();
-
   function openModal(){
     modal.style.display = 'flex';
     document.body.classList.add('modal-open');
     const em = modal.querySelector('.emph-underline');
     if(em){ em.style.animation = 'none'; void em.offsetWidth; em.style.animation = ''; }
-    scheduleCloseButton();
   }
 
   /* ===== タブ切り替え ===== */
