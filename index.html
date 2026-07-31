@@ -68,9 +68,18 @@
   }
   .modal-head{
     background:linear-gradient(135deg,#c0392b,#e04b3a);
-    color:#fff;padding:20px 24px;
+    color:#fff;padding:20px 24px;position:relative;
   }
-  .modal-head h2{font-size:1.15rem;line-height:1.5}
+  .modal-head h2{font-size:1.15rem;line-height:1.5;padding-right:34px}
+  .modal-close{
+    position:absolute;top:14px;right:14px;
+    width:30px;height:30px;border:none;border-radius:50%;
+    background:rgba(255,255,255,.16);color:#fff;
+    font-size:1.25rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:.2s;
+  }
+  .modal-close:hover{background:rgba(255,255,255,.32)}
   .modal-body{padding:22px 24px;overflow-y:auto}
   .modal-body h3{
     font-size:1rem;color:#b5372a;
@@ -346,6 +355,7 @@
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-head">
       <h2 id="modal-title">⚠️ 不正に関する重要な注意喚起</h2>
+      <button class="modal-close" id="modal-close" aria-label="閉じる" title="閉じる">×</button>
     </div>
     <div class="modal-body" id="modal-scroll">
       <p>本補助金の申請にあたっては、適正な申請および事業実施が求められます。不正または不適切と判断された場合、交付決定後であっても補助金の返還等の措置が取られる可能性があります。</p>
@@ -1019,6 +1029,12 @@
 
   // フォームボタンを押したらモーダルを閉じる（フォームは別タブで開く）
   agree.addEventListener('click', ()=>{
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  });
+
+  // ×（閉じる）ボタン
+  document.getElementById('modal-close').addEventListener('click', ()=>{
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
   });
