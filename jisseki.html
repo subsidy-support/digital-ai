@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="株式会社SOHO">
+<meta name="copyright" content="© 2026 株式会社SOHO All Rights Reserved.">
+<title>デジタル化・AI導入補助金｜実績報告のご案内｜株式会社SOHO</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<style>
+
+  /* ===== 案1: エディトリアル（余白・セリフ・テラコッタ） ===== */
+  :root{
+    --bg:#faf8f3; --panel:#ffffff; --ink:#211c17; --body:#4b443c; --muted:#8a8073;
+    --line:#e7ded1; --line2:#efe8dc; --accent:#bf5535; --accent-d:#9c4327; --accent-soft:#f6ede8;
+    --red:#b23b2f; --red-bg:#f8ecea; --amber:#a9781f; --amber-bg:#f7f0df; --grn:#3f7a4e; --grn-bg:#eef4ee;
+    --serif:Georgia,"Times New Roman",'Hiragino Mincho ProN',serif;
+    --sans:"Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--body);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-d);text-decoration:none} a:hover{text-decoration:underline}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+  /* modal */
+  .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(33,28,23,.5);display:flex;align-items:center;justify-content:center;padding:16px}
+  .modal{background:var(--panel);width:100%;max-width:660px;max-height:88vh;border-radius:4px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(33,28,23,.3);border-top:5px solid var(--accent)}
+  .modal-head{background:var(--panel);color:var(--ink);padding:24px 28px 16px;position:relative;border-bottom:1px solid var(--line)}
+  .modal-head h2{font-family:var(--serif);font-size:1.3rem;line-height:1.5;padding-right:34px;font-weight:700}
+  .modal-close{position:absolute;top:18px;right:20px;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--muted);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+  .modal-close:hover{background:#f2ece2;color:var(--ink)}
+  .modal-body{padding:22px 28px;overflow-y:auto}
+  .modal-body p{margin-bottom:8px}
+  .modal-body h3{font-family:var(--serif);font-size:1rem;color:var(--accent-d);margin:20px 0 6px}
+  .modal-foot{border-top:1px solid var(--line);padding:18px 28px;background:var(--bg)}
+  .modal-btn{display:block;text-align:center;text-decoration:none;width:100%;border:none;cursor:pointer;padding:15px;border-radius:3px;font-size:1rem;font-weight:700;color:#fff;background:var(--accent);transition:.2s;letter-spacing:.03em}
+  .modal-btn:hover{background:var(--accent-d);text-decoration:none}
+  body.modal-open{overflow:hidden}
+  .emph-underline{color:var(--red);font-weight:700;font-size:1.15em;background-image:linear-gradient(transparent 62%,#f2d24a 62%);background-repeat:no-repeat;background-position:0 0;background-size:0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:emphDraw 3.3s ease-out .35s forwards}
+  @keyframes emphDraw{to{background-size:100% 100%}}
+
+  /* hero — 左寄せ・罫線・大セリフ */
+  .hero{background:var(--bg);color:var(--ink);padding:70px 0 40px;text-align:left;border-bottom:2px solid var(--ink)}
+  .hero .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  .hero h1{font-family:var(--serif);font-size:2.6rem;line-height:1.4;margin-bottom:20px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+  .hero p{font-size:1rem;max-width:640px;color:var(--body)}
+
+  section.block{padding:56px 0}
+  .section-title{font-family:var(--serif);text-align:left;font-size:1.7rem;color:var(--ink);margin-bottom:6px;font-weight:700;position:relative;padding-bottom:12px}
+  .section-title::after{content:"";position:absolute;left:0;bottom:0;width:52px;height:3px;background:var(--accent)}
+  .section-lead{text-align:left;color:var(--muted);margin-bottom:34px;font-size:.95rem}
+
+  .purpose{background:transparent;border:none;border-left:3px solid var(--accent);border-radius:0;padding:6px 0 6px 24px;box-shadow:none;display:block}
+  .purpose .ico{display:none}
+  .purpose h3{font-family:var(--serif);color:var(--ink);font-size:1.2rem;margin-bottom:8px}
+
+  /* warn cta */
+  .warn-cta{display:flex;flex-direction:column;align-items:stretch;gap:14px;margin-top:34px}
+  .warn-link{align-self:center;display:inline-flex;align-items:center;justify-content:center;gap:10px;color:#fff;border:none;background:var(--red);padding:18px 30px;border-radius:3px;font-weight:700;font-size:1.05rem;cursor:pointer;transition:.2s;text-align:center;letter-spacing:.02em;animation:warnPulse 2s ease-in-out infinite}
+  .warn-link:hover{background:#8f2d23;text-decoration:none;transform:translateY(-1px)}
+  @keyframes warnPulse{0%,100%{box-shadow:0 0 0 0 rgba(178,59,47,.5)}50%{box-shadow:0 0 0 12px rgba(178,59,47,0)}}
+  .warn-note{color:var(--red);font-weight:700;font-size:.95rem;text-align:center;line-height:1.7;background:var(--red-bg);border:none;border-left:3px solid var(--red);border-radius:0;padding:12px 16px;line-break:strict;overflow-wrap:anywhere}
+  .center{display:flex;justify-content:center}
+
+  /* steps — 番号を大きな数字＋罫線 */
+  .steps{display:grid;gap:0;border-top:1px solid var(--line)}
+  .step{background:transparent;border:none;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;padding:28px 4px 28px 68px;position:relative}
+  .step-no{position:absolute;left:0;top:26px;width:auto;height:auto;background:none;color:var(--accent);font-family:var(--serif);font-weight:700;font-size:2rem;border-radius:0;display:block;margin:0}
+  .step-eyebrow{font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.2em;display:block;margin-bottom:2px;text-transform:uppercase}
+  .step h3{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin-bottom:10px}
+  .note{font-size:.85rem;background:var(--amber-bg);border:none;border-left:3px solid var(--amber);color:#7a5814;border-radius:0;padding:10px 14px;margin-top:12px}
+
+  .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .btn{display:inline-block;background:transparent;border:1px solid var(--accent);color:var(--accent-d);padding:9px 16px;border-radius:3px;font-size:.86rem;font-weight:600;transition:.2s}
+  .btn:hover{background:var(--accent);color:#fff;text-decoration:none}
+  .btn.solid{background:var(--accent);color:#fff;border-color:var(--accent)} .btn.solid:hover{background:var(--accent-d)}
+  .btn.blue{background:#2f5d8c;color:#fff;border-color:#2f5d8c} .btn.blue:hover{background:#254a70;text-decoration:none}
+  .btn.orange{background:#c26a1f;color:#fff;border-color:#c26a1f} .btn.orange:hover{background:#a3571a;text-decoration:none}
+
+  /* tabs — 中央寄せのセグメント型ボタン */
+  .tabs{display:flex;justify-content:center;gap:0;background:transparent;padding:0;border:none;max-width:440px;margin:0 auto 34px}
+  .tab{flex:1 1 0;position:relative;text-align:center;padding:13px 20px;border:1px solid var(--accent);border-radius:0;font-weight:700;font-size:.98rem;color:var(--accent-d);cursor:pointer;background:#fff;transition:.2s}
+  .tab+.tab{margin-left:-1px}
+  .tab:first-child{border-radius:3px 0 0 3px}
+  .tab:last-child{border-radius:0 3px 3px 0}
+  .tab:hover:not(.active){background:#f6ede8}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);z-index:1}
+
+  .doc-list{display:none} .doc-list.active{display:grid;gap:0;animation:tabFade .38s ease}
+  @keyframes tabFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  /* card — フラット・罫線区切り・影なし */
+  .card{background:transparent;border:none;border-bottom:1px solid var(--line);border-radius:0;overflow:hidden;box-shadow:none}
+  .card-head{display:flex;align-items:center;gap:16px;padding:22px 4px;cursor:pointer;user-select:none}
+  .card-ico{flex:none;width:40px;height:40px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+  .card-title{flex:1}
+  .card-no{font-size:.66rem;font-weight:700;color:var(--accent);letter-spacing:.18em}
+  .card-title h4{font-family:var(--serif);font-size:1.08rem;color:var(--ink);line-height:1.4;font-weight:700}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .badge{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:2px;background:transparent;color:var(--accent-d);border:1px solid var(--line)}
+  .badge.gray{background:transparent;color:var(--muted);border-color:var(--line)}
+  .badge.warn{background:transparent;color:var(--amber);border:1px solid #e3cf9a}
+  .chev{flex:none;color:var(--muted);transition:transform .25s;font-size:1.1rem}
+  .card.open .chev{transform:rotate(180deg)}
+  .card-body{display:none;padding:0 4px 24px 60px}
+  .card.open .card-body{display:block}
+  .card-body h5{font-size:.92rem;color:var(--accent-d);margin:16px 0 6px;font-family:var(--serif)}
+  .card-body p{font-size:.9rem;margin-bottom:8px}
+  .card-body ul{margin:6px 0 6px 20px;font-size:.9rem} .card-body li{margin-bottom:4px}
+  .card-body .btn-row{margin-top:12px}
+  .subnote{background:var(--grn-bg);border-left:3px solid var(--grn);border-radius:0;padding:12px 14px;margin-top:12px;font-size:.86rem}
+  .subnote.warn{background:var(--amber-bg);border-left-color:var(--amber);color:#7a5814}
+
+  /* callouts */
+  .callout{border-radius:0;padding:15px 18px;margin-top:14px;border-left:3px solid}
+  .callout h5{margin:0 0 8px;font-size:.95rem;font-family:var(--serif)}
+  .callout p{margin:0;font-size:.9rem} .callout ul{margin:6px 0 0 20px;font-size:.9rem} .callout li{margin-bottom:4px}
+  .callout .btn-row{margin-top:12px}
+  .callout-red{background:var(--red-bg);border-left-color:var(--red)} .callout-red h5{color:var(--red)} .callout-red p,.callout-red li{color:#8f2d23}
+  .callout-yellow{background:var(--amber-bg);border-left-color:var(--amber)} .callout-yellow h5{color:#7a5814}
+  .callout-green{background:var(--grn-bg);border-left-color:var(--grn)} .callout-green h5{color:#2f5c3b}
+
+  .conveni-box{background:#f4efe6;border:1px solid var(--line);border-radius:0;padding:16px 18px;margin-top:14px}
+  .conveni-box h5{margin:0 0 8px;font-family:var(--serif)} .conveni-box p{font-size:.85rem;margin:0}
+  .conveni-box .subhint{color:var(--muted);font-size:.8rem} .conveni-box .conveni{margin-top:12px}
+  .conveni{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .conveni .btn{background:#fff;border-color:#d8cfc0;color:#5a5145} .conveni .btn:hover{background:#efe8db;color:#3a342b}
+
+  .mynum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .mynum-box{border:1px solid var(--line);border-radius:0;padding:14px;background:#f4efe6}
+  .mynum-box .mynum-t{display:block;font-weight:700;color:var(--ink);margin-bottom:4px;font-size:.92rem;font-family:var(--serif)}
+  .mynum-box p{font-size:.82rem;margin:0;color:var(--body)}
+
+  footer{background:#4e3a2a;color:#e4dccb;padding:44px 0 32px;margin-top:20px;text-align:left;font-size:.86rem}
+  footer .brand-f{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:6px;font-family:var(--serif)}
+  footer a{color:#e9b9a3} footer .disclaimer{margin-top:20px;font-size:.78rem;color:#b6ab98;border-top:1px solid rgba(255,255,255,.16);padding-top:18px}
+
+  @media(max-width:640px){
+    .hero h1{font-size:1.9rem} .section-title{font-size:1.4rem}
+    .tabs{overflow-x:auto} .mynum{grid-template-columns:1fr}
+    .card-body{padding-left:4px} .step{padding-left:56px}
+  }
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">採択者向け</span>
+    <h1>実績報告のご案内</h1>
+    <p>交付決定を受けた後、事業完了後に行う「実績報告」の手順と必要書類をご案内します。内容はデジタル化・AI導入補助金2026「事業実施・実績報告マニュアル」（2026年6月12日版）に基づいています。</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="callout callout-red">
+      <h5>⚠️ ITツール代金のお支払い・証憑の保管についての大切なお願い</h5>
+      <p><strong>お支払いが完了した時点で、必要な証憑を必ず保管してください。</strong></p>
+      <ul>
+        <li>お支払い方法は<strong>「銀行振込」または「クレジットカード1回払い」のみ</strong>が対象です（現金による振込、リボ払い・分割払いは対象外）。</li>
+        <li>インターネットバンキングをご利用の場合、取引明細の照会期間を過ぎると表示・出力ができなくなることがあります。</li>
+        <li>ATMで発行される「ご利用明細」は再発行ができません。なくさず保管してください。</li>
+        <li>振込は<strong>補助事業者の口座</strong>から<strong>IT導入支援事業者の口座</strong>へ行ってください（代表者個人・家族名義等は不可）。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="conveni-box">
+      <h5>📚 公式マニュアル・様式（必ずあわせてご確認ください）</h5>
+      <p>本ページは要点をまとめたものです。正式・最新の内容は必ず公式資料をご確認ください。</p>
+      <div class="btn-row">
+        <a class="btn solid" href="https://it-shien.smrj.go.jp/pdf/it2026_manual_jisseki.pdf" target="_blank" rel="noopener">📖 事業実施・実績報告マニュアル</a>
+        <a class="btn" href="https://it-shien.smrj.go.jp/pdf/it2026_kakuninjikou_jisseki.pdf" target="_blank" rel="noopener">📖 実績報告における注意ポイント</a>
+        <a class="btn" href="https://it-shien.smrj.go.jp/pdf/it2026_seikyushiharaiuchiwake_jisseki.xlsx" target="_blank" rel="noopener">📄 請求・支払内訳シート</a>
+        <a class="btn" href="https://it-shien.smrj.go.jp/download/" target="_blank" rel="noopener">🌐 資料ダウンロード（公式）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2 class="section-title">実績報告の手順</h2>
+    <p class="section-lead">補助事業者とIT導入支援事業者が共同で行い、最後に補助事業者が提出します</p>
+    <div class="steps">
+      <div class="step"><span class="step-no">1</span><span class="step-eyebrow">STEP 01</span>
+        <h3>必要書類の準備・回収</h3>
+        <p>請求書・支払証憑・補助金受取口座情報など、実績報告に必要な書類を準備します。事業に係る証憑はすべて保管してください。</p>
+        <div class="note">⚠️ 実績報告の提出までに、すべてのITツールで支払い・検収が完了し、利用・運用が開始されている必要があります。</div></div>
+      <div class="step"><span class="step-no">2</span><span class="step-eyebrow">STEP 02</span>
+        <h3>実績報告の開始・証憑の添付</h3>
+        <p>補助事業者が申請マイページから実績報告を開始し、各種証憑類と補助金受取口座情報を添付します。</p>
+        <div class="note">⚠️ 添付ファイルは10MB未満の「.jpg / .jpeg / .png / .pdf」形式のみ対応です（Excelは添付不可）。</div></div>
+      <div class="step"><span class="step-no">3</span><span class="step-eyebrow">STEP 03</span>
+        <h3>IT導入支援事業者の確認・入力</h3>
+        <p>IT導入支援事業者が、補助事業者の入力・添付内容を確認し、契約情報・納品情報・支払情報を入力します。</p></div>
+      <div class="step"><span class="step-no">4</span><span class="step-eyebrow">STEP 04</span>
+        <h3>不備があれば訂正</h3>
+        <p>事務局の確定検査で確認・訂正事項があった場合は、指示された期間内に訂正して再提出します。</p>
+        <div class="note">⚠️ 期間内に不備訂正が完了しない場合、交付決定の取消しとなる場合があります。</div></div>
+      <div class="step"><span class="step-no">5</span><span class="step-eyebrow">STEP 05</span>
+        <h3>最終確認・提出</h3>
+        <p>補助事業者が内容を最終確認し、SMS認証のうえ事務局へ提出します。提出後、確定検査・補助金確定内容の承認を経て補助金が交付されます。</p>
+        <div class="btn-row"><a class="btn" href="https://it-shien.smrj.go.jp/aftergrantdecision/measures/" target="_blank" rel="noopener">🔗 交付決定後に必要な手続き（公式）</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="callout callout-yellow">
+      <h5>⚠️ GビズIDの事前確認（※必ずご確認ください）</h5>
+      <p>実績報告は、<strong>申請マイページ</strong>に<strong>GビズID（プライムアカウント）</strong>でログインして行います。提出時には<strong>SMS認証</strong>が必要です。事前にログインできることをご確認ください。</p>
+      <div class="btn-row"><a class="btn solid" href="https://portal.shinsei.it-shien.smrj.go.jp/" target="_blank" rel="noopener">🔐 申請マイページ｜ログイン（公式）</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2 class="section-title">実績報告の必要書類</h2>
+    <p class="section-lead">各書類をクリックすると、記載項目・注意点・マニュアルが開きます（申請枠・導入内容により必要書類は異なります）</p>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">🧾</div>
+        <div class="card-title"><span class="card-no">DOC 01</span><h4>請求書（請求明細書）</h4>
+          <div class="badges"><span class="badge">全事業者対象</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>IT導入支援事業者から補助事業者へ発行された<strong>請求書（請求明細書）</strong>を添付してください。以下の項目が明記された請求書を作成してください。</p>
+        <div class="callout callout-green">
+          <h5>▼ 記載が必要な項目</h5>
+          <ul>
+            <li>① 請求日</li>
+            <li>② 請求元情報</li>
+            <li>③ 請求先名</li>
+            <li>④ 請求金額（合計）<br><span style="color:#b23b2f;font-size:.86em">※税抜・税込が明確に区別されていること</span></li>
+            <li>⑤ ITツール名（製品名）<br><span style="color:#b23b2f;font-size:.86em">※請求内容に補助対象外経費が含まれている場合は、補助対象経費にマーカーを引くなどして対象経費と対象外経費を明確にしてください。</span></li>
+            <li>⑥ ITツール（数量）<br><span style="color:#b23b2f;font-size:.86em">※年数・数量が分かるように記載してください（例：数量1／2年分 など）</span></li>
+            <li>⑦ ITツール（単価・金額）<br><span style="color:#b23b2f;font-size:.86em">※単価は合計金額ではありません（数量×単価＝金額 となるように記載）</span></li>
+            <li>⑧ ITツール（利用期間）</li>
+          </ul>
+        </div>
+        <div class="callout callout-yellow">
+          <h5>⚠️ 注意事項</h5>
+          <ul>
+            <li>請求内容は一式表記ではなく、<strong>ITツールごとに明細が分かる</strong>ようにしてください。</li>
+            <li>製品名の後に「<strong>申請期間</strong>」を記載してください。</li>
+          </ul>
+        </div>
+        <div class="btn-row"><a class="btn" href="manuals_invoice.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">🖥️</div>
+        <div class="card-title"><span class="card-no">DOC 02</span><h4>ソフトウェアの利用確認</h4>
+          <div class="badges"><span class="badge">全事業者対象</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>ソフトウェアを起動後、「<strong>ソフトウェアのロゴ（またはソフトウェア名）</strong>」＋「<strong>補助事業者名</strong>」の2点が画面に表示されているキャプチャをご用意ください。</p>
+        <div class="callout callout-green">
+          <p>※補助事業者名が表示されないソフトウェアの場合は、「<strong>ソフトウェア名</strong>」＋「<strong>補助事業者名</strong>」＋「<strong>支援事業者名</strong>」が記載されている契約書をご共有ください。</p>
+        </div>
+        <div class="subnote warn">※セキュリティ対策推進枠は対象外です。</div>
+        <div class="btn-row"><a class="btn" href="manuals_software.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">💳</div>
+        <div class="card-title"><span class="card-no">DOC 03</span><h4>支払証憑</h4>
+          <div class="badges"><span class="badge">全事業者対象</span><span class="badge warn">支払方法で異なる</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>補助事業者がIT導入支援事業者へ支払いを行ったことを示す書類を提出してください。</p>
+        <div class="callout callout-green">
+          <h5>▼ 支払証憑に必要な情報</h5>
+          <ul>
+            <li>① 金融機関名</li>
+            <li>② 振込日</li>
+            <li>③ 振込元情報</li>
+            <li>④ 振込先情報</li>
+            <li>⑤ 振込金額</li>
+            <li>⑥ 振込が完了していること</li>
+            <li>⑦ 口座から口座へ振込を行っていること</li>
+          </ul>
+        </div>
+        <p>下記のような書類の組み合わせが認められています。</p>
+        <div class="callout callout-green">
+          <h5>▼ 支払証憑の組み合わせ例</h5>
+          <ul>
+            <li>ATM利用明細書 ＋ 通帳表紙 ＋ 通帳記帳ページ</li>
+            <li>窓口振込時の振込依頼書 ＋ 通帳表紙 ＋ 通帳記帳ページ</li>
+            <li>ネットバンクの振込照会ページ ＋ 入出金履歴 ＋ 基本口座情報</li>
+            <li><span style="color:#b23b2f;font-size:.86em">※当座預金の場合は「総合振込明細＋当座勘定照合表」が必要です</span></li>
+          </ul>
+        </div>
+        <div class="callout callout-yellow">
+          <h5>⚠️ 注意事項</h5>
+          <p><strong style="color:#b23b2f">銀行振込での振込が完了した時点で必要な証憑を必ず保管してください。</strong></p>
+          <ul>
+            <li>特にインターネットバンキングを利用する場合は、取引明細照会期間を過ぎると証憑の出力ができないことがあります。</li>
+            <li>提出いただく通帳取引ページに複数の取引が記載されている場合は、<strong>該当取引以外の箇所を黒塗り</strong>したうえでご提出ください。</li>
+          </ul>
+        </div>
+        <div class="btn-row">
+          <a class="btn" href="manuals_payment.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a>
+          <a class="btn" href="https://it-shien.smrj.go.jp/pdf/it2026_seikyushiharaiuchiwake_jisseki.xlsx" target="_blank" rel="noopener">📄 請求・支払内訳シート</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">🏦</div>
+        <div class="card-title"><span class="card-no">DOC 04</span><h4>補助金受取口座</h4>
+          <div class="badges"><span class="badge">全事業者対象</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>補助金を受け取る口座情報を提出してください。</p>
+        <div class="callout callout-green">
+          <h5>▼ 口座情報に必要な項目</h5>
+          <ul>
+            <li>① 金融機関名</li>
+            <li>② 金融機関コード</li>
+            <li>③ 支店名</li>
+            <li>④ 口座種別</li>
+            <li>⑤ 口座番号</li>
+            <li>⑥ 口座名義人</li>
+          </ul>
+        </div>
+        <div class="callout callout-green">
+          <h5>▼ 例</h5>
+          <ul>
+            <li>通帳表紙 ＋ 通帳見開き（表紙の裏）の写真</li>
+            <li>ネットバンクの口座情報ページのスクリーンショット</li>
+            <li><span style="color:#b23b2f;font-size:.86em">※当座預金の場合は「当座勘定入金帳」「当座勘定照合表」「残高証明書」のいずれかが必要です</span></li>
+          </ul>
+        </div>
+        <div class="subnote warn"><strong>補助事業者名義の口座のみ</strong>が対象です（法人は代表者の個人口座不可、個人事業主は家族・親族名義不可）。キャッシュカードは不可。口座名義（カナ）はシステム入力と完全一致が必要です。</div>
+        <div class="subnote">この書類はIT導入支援事業者は閲覧できません。</div>
+        <div class="btn-row"><a class="btn" href="manuals_bank.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">📦</div>
+        <div class="card-title"><span class="card-no">DOC 05</span><h4>【ハードウェア導入者のみ対象】ハードウェアの納品書</h4>
+          <div class="badges"><span class="badge warn">ハードウェア導入者</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>導入したハードウェアに関する納品書を提出してください。<br><span style="color:#b23b2f;font-size:.86em">※こちらはハードウェアを導入された方のみ対象です。</span></p>
+        <div class="callout callout-green">
+          <h5>▼ 納品書に記載が必要な項目</h5>
+          <ul>
+            <li>① 納品日</li>
+            <li>② 納品元情報</li>
+            <li>③ 納品先名</li>
+            <li>④ ITツール名（製品名）</li>
+            <li>⑤ ITツール（数量）</li>
+          </ul>
+        </div>
+        <div class="btn-row"><a class="btn" href="manuals_hardware.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">📷</div>
+        <div class="card-title"><span class="card-no">DOC 06</span><h4>【ハードウェア導入者のみ対象】ハードウェアの写真</h4>
+          <div class="badges"><span class="badge warn">ハードウェア導入者</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>「設置した状態の写真」と、「ラベルの貼付の確認ができる写真」を提出してください。<br><span style="color:#b23b2f;font-size:.86em">※こちらはハードウェアを導入された方のみ対象です。</span></p>
+        <div class="callout callout-green">
+          <h5>▼ 確認が必要な写真の内容</h5>
+          <ul>
+            <li>設置した状態の写真（ハードウェア1台につき1枚ずつの撮影が必要です）</li>
+            <li>ラベルの貼付が確認できる写真（ラベルの文字が読めるように撮影してください）</li>
+          </ul>
+        </div>
+        <div class="callout callout-yellow">
+          <h5>⚠️ 注意事項</h5>
+          <ul>
+            <li>導入した全てのハードウェアの写真が必要です。</li>
+            <li>設置状態がわかるよう、1台ずつ立ち上げた状態で撮影してください。</li>
+            <li>PC、タブレット、モバイルPOSレジは、ソフトウェアを立ち上げた状態での写真が必要です。</li>
+            <li>付属品、周辺機器を対象としている場合は、本体とともに確認ができるよう撮影してください。</li>
+          </ul>
+        </div>
+        <div class="btn-row"><a class="btn" href="manuals_hardware.pdf" target="_blank" rel="noopener">📖 実績報告マニュアルを開く（公式）</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-ico">👥</div>
+        <div class="card-title"><span class="card-no">DOC 07</span><h4>【小規模事業者のみ対象】従業員一覧</h4>
+          <div class="badges"><span class="badge warn">小規模事業者</span></div></div><span class="chev">⌄</span></div>
+      <div class="card-body">
+        <p>小規模事業者に該当された方は提出してください。</p>
+        <div class="callout callout-green">
+          <ul>
+            <li>「記入方法」を参考に「従業員一覧」へご記入をお願いいたします。</li>
+            <li>役員を除く従業員の <strong>氏名</strong> と <strong>雇入年月日</strong> の記入が必要です。</li>
+            <li>申請時の従業員数から変更がある場合は、登録情報の変更が必要です。弊社までご連絡ください。</li>
+            <li>「交付申請番号」は弊社で入力しますので、記入済みExcelファイルのままご返送ください。</li>
+          </ul>
+        </div>
+        <div class="conveni-box">
+          <h5>📥 フォーマットのダウンロード方法</h5>
+          <ol style="margin:6px 0 0 20px;font-size:.9rem">
+            <li><a href="https://portal.shinsei.it-shien.smrj.go.jp/" target="_blank" rel="noopener">申請マイページ</a> にログイン（公式サイトへ）</li>
+            <li>「申請者メニュー」をクリック</li>
+            <li>「実績報告について」をクリック</li>
+            <li>「従業員一覧」をクリックしてダウンロード</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-yellow" style="margin-top:22px">
+      <h5>📌 上記以外に必要となる場合がある書類</h5>
+      <p>申請枠・導入内容により、次の書類が必要になる場合があります。詳細は公式マニュアルをご確認ください。</p>
+      <ul>
+        <li>役務の実施実態資料（大分類Ⅲ「役務」を導入し、事務局から指示があった場合）</li>
+        <li>取得財産等管理台帳（単価50万円以上・買取のソフトウェア等を導入した場合）</li>
+        <li>インボイス登録通知書（インボイス枠で加点を希望した場合）</li>
+        <li>電子取引類型に関する書類（契約書／利用申込書、取引先アカウント一覧 等）</li>
+      </ul>
+    </div>
+    <div class="subnote" style="margin-top:14px"><strong>提出書類の共通ルール：</strong>いずれも<strong>補助事業者名義</strong>の書類が必要です（IT導入支援事業者の書類は不可）。文字が鮮明に読み取れ、書類全体が分かる状態で、可能な限りスキャンしてPDFで提出してください。マイナンバー・保険者番号等の個人情報は黒塗りにしてください。法人申請では法人格（株式会社等）を省略しないでください。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>ご不明な点は弊社担当者までお問い合わせください。</p>
+    <p style="margin-top:10px">本ページは、デジタル化・AI導入補助金2026「事業実施・実績報告マニュアル」（2026年6月12日版）に基づき作成しています。<strong>最新かつ正式な内容は、必ず公式マニュアル・事務局にてご確認ください。</strong></p>
+    <p style="margin-top:10px">出典：<a href="https://it-shien.smrj.go.jp/" target="_blank" rel="noopener">デジタル化・AI導入補助金 公式サイト（it-shien.smrj.go.jp）</a></p>
+    <p class="disclaimer">⚠️ 本サイト・資料の無断転載・無断複製・無断転用・第三者への再配布を固く禁じます。<br>© 2026 株式会社SOHO All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.card-head').forEach(function(h){
+    h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+  });
+</script>
+
+</body>
+</html>
